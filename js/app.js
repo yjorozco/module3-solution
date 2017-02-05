@@ -46,12 +46,13 @@ function FoundItemsDirective() {
   MenuSearchService.$inject = ['$http', 'ApiBasePath'];
   function MenuSearchService($http, ApiBasePath){
     var service=this;
+    var foundItems=[];
     service.getMatchedMenuItems = function(searchTerm) {
        return $http({
        method: 'GET',
        url: (ApiBasePath + "/menu_items.json"),
          }).then(function (result) {
-           var foundItems=[];
+           foundItems=[];
            if(searchTerm.trim()!=""){
               var menu_items=result.data.menu_items;
               for(var i=0;i<menu_items.length;i++){
