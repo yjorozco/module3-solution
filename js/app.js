@@ -57,7 +57,7 @@ function FoundItemsDirective() {
            if(searchTerm.trim()!=""){
               var menu_items=result.data.menu_items;
               for(var i=0;i<menu_items.length;i++){
-                if(menu_items[i].description.indexOf(searchTerm) !== -1){
+                if(menu_items[i].description.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1){
                   foundItems.push(menu_items[i]);
                 }
               }
