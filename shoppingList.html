@@ -1,10 +1,22 @@
+<div class="form-group" style="margin-top:80px;" >
+  <table class="table" ng-if="list.foundItems1.length>0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Short Name</th>
+        <th>Description</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody  ng-repeat="item in list.foundItems1">
 
-<div class="form-group" >
-<ol>
-  <li ng-repeat="item in list.foundItems1">
-    {{ item.name}},  {{ item.short_name}},  {{ item.description}}
-    <button class="btn btn-primary" ng-click="list.onRemove({index: $index});"> Don't want this one!</button>
-  </li>
-</ol>
+      <tr>
+        <td>{{ item.name}}</td>
+        <td>{{ item.short_name}}</td>
+        <td>{{ item.description}}</td>
+        <td><button class="btn btn-primary" ng-click="list.onRemove({index: $index});"> Don't want this one!</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alert alert-info" role="alert" ng-if="!list.foundItems1.length>0">Nothing found</div>
 </div>
-<div class="error" ng-if="!list.foundItems1.length>0">Nothing found</div>

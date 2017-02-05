@@ -30,6 +30,7 @@ function FoundItemsDirective() {
       MenuSearchService.getMatchedMenuItems(list.itemName)
         .then(function (data){
               list.found = data;
+              list.itemName="";
         });
     }
 
